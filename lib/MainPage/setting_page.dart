@@ -29,7 +29,7 @@ class _SettingPageState extends State<SettingPage> {
             child: Text("LOG OUT",
             style: TextStyle(color: Colors.amber[600],fontWeight: FontWeight.bold,fontSize: 20),
             ),
-            style: ButtonStyle(backgroundColor:MaterialStateProperty.all(Colors.white70),
+            style: ButtonStyle(backgroundColor:MaterialStateProperty.all(Colors.white),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(50.0)),

@@ -1,8 +1,9 @@
 // ignore_for_file: deprecated_member_use, duplicate_ignore
-
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meowgather/MainPage/HomeComponent/pet_list.dart';
@@ -23,6 +24,7 @@ class _PetAddState extends State<PetAdd> {
   late DateTime? selectedData;
   int ages = 0;
   String _date = "Birth Day";
+
 
   late DateTime birthDate ;
 
@@ -189,7 +191,7 @@ class _PetAddState extends State<PetAdd> {
                 child: ElevatedButton(onPressed: (){
                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => NavigationBar()));
                 }, child: Text("BACK",style: TextStyle(color: Colors.amber[900],fontSize: 25,fontWeight: FontWeight.bold),),
-                    style: ButtonStyle(backgroundColor:MaterialStateProperty.all(Colors.white70),
+                    style: ButtonStyle(backgroundColor:MaterialStateProperty.all(Colors.white),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(50.0),bottomLeft: Radius.circular(50.0)),
@@ -203,12 +205,36 @@ class _PetAddState extends State<PetAdd> {
               child: SizedBox(
                 width: 150,
                 height: 50,
-                child: ElevatedButton(onPressed: (){
-                   
+                child: ElevatedButton(onPressed:() {
+                    imageFile == null ?
+                      showDialog(context: context, 
+                      builder: (BuildContext context){
+                        return AlertDialog(
+                          title: Text("Invalid Picture",style: TextStyle(color: Colors.amber[900],fontSize: 25,fontWeight: FontWeight.bold),),
+                          content: Text("Please change picture",style: TextStyle(color: Colors.amber[900],fontSize: 20,),),
+                          actions: [
+                            ElevatedButton(onPressed: (){
+                              Navigator.pop(context);
+                            }, child: Text("OK",style: TextStyle(color: Colors.amber[900],fontSize: 20,fontWeight: FontWeight.bold),),
+                            style: ButtonStyle(backgroundColor:MaterialStateProperty.all(Colors.white),
+                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                               borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                     side: BorderSide(color: Colors.red)
+                    ),
+                    ),
+            ),
+                            
+                            )
+                          ],
+                        );
+                      }
+                      )
+                    : imageFile = imageFile;
                     petdata.add(PetData(name: name, birthday: _date, age: ages, img: imageFile));
                     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => NavigationBar()));
                 }, child: Text("ADD",style: TextStyle(color: Colors.amber[900],fontSize: 25,fontWeight: FontWeight.bold),),
-                    style: ButtonStyle(backgroundColor:MaterialStateProperty.all(Colors.white70),
+                    style: ButtonStyle(backgroundColor:MaterialStateProperty.all(Colors.white),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(topRight: Radius.circular(50.0),bottomRight: Radius.circular(50.0)),
