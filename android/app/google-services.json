@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "597641013843",
+    "project_id": "meow-gather",
+    "storage_bucket": "meow-gather.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597641013843:android:dd7c0ac4cc26123cf1f4a6",
+        "android_client_info": {
+          "package_name": "com.example.meowgather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597641013843-5kdik9343bn549bhldrteh9ptjp6mkbl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRgJju96jZZ20CqWa4rGi_n5knXBab0YY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597641013843-5kdik9343bn549bhldrteh9ptjp6mkbl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
